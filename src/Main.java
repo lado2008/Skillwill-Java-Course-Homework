@@ -1,14 +1,43 @@
+import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("This is average of four numbers: " + fourNumbersAverage(2, 3, 5, 1));
-        System.out.println("This is sum of strings length: " + stringLengthSum("Lado", "Adamia", "Hallo"));
+        animals("dog");
+        System.out.println(powerVerionOne(2, 4));
+        System.out.println(powerVerionTwo(5, 3));
     }
 
-    static double fourNumbersAverage(int number1, int number2, int number3, int number4) {
-        return (number1 + number2 + number3 + number4) / 4.0;
+    // Task 1
+    static void animals(String animal) {
+        if (animal == "dog") {
+            System.out.println("I am the dog");
+        } else if (animal == "cat") {
+            System.out.println("I an the cat");
+        }  else if (animal == "lion") {
+            System.out.println("I an the lion");
+        } else if (animal == "pig") {
+            System.out.println("I an the pig");
+        } else {
+            System.out.println("I am an animal");
+        }
     }
-    static int stringLengthSum(String text1, String text2, String text3) {
-        return text1.length() + text2.length() + text3.length();
+    // Task 2 Version One
+    static int powerVerionOne(int x, int y) {
+        int result = 1;
+        int i = 0;
+
+        while (i < y) {
+            result *= x;
+            i++;
+        }
+        return result;
+    }
+    // Task 2 Version Two
+    static int powerVerionTwo(int x, int y) {
+        int result = 1;
+        for (int i = 0; i < y; i++) {
+            result *= x;
+        }
+        return result;
     }
 }
