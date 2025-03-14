@@ -1,43 +1,20 @@
-import java.util.Locale;
+import f1Drivers.F1DriversList;
 
 public class Main {
     public static void main(String[] args) {
-        animals("dog");
-        System.out.println(powerVerionOne(2, 4));
-        System.out.println(powerVerionTwo(5, 3));
-    }
+        F1DriversList driver1 = new F1DriversList();
+        driver1.setName("Charles Leclerc");
+        driver1.setAge(27);
+        driver1.setF1Team("Scuderia Ferrari HP");
+        driver1.setPodiums(43);
+        driver1.setRisingNumber(16);
 
-    // Task 1
-    static void animals(String animal) {
-        if (animal == "dog") {
-            System.out.println("I am the dog");
-        } else if (animal == "cat") {
-            System.out.println("I an the cat");
-        }  else if (animal == "lion") {
-            System.out.println("I an the lion");
-        } else if (animal == "pig") {
-            System.out.println("I an the pig");
-        } else {
-            System.out.println("I am an animal");
-        }
-    }
-    // Task 2 Version One
-    static int powerVerionOne(int x, int y) {
-        int result = 1;
-        int i = 0;
+        F1DriversList driver2 = new F1DriversList("George Russell", 27, "Mercedes-AMG PETRONAS F1 Team", 15, 63);
 
-        while (i < y) {
-            result *= x;
-            i++;
-        }
-        return result;
-    }
-    // Task 2 Version Two
-    static int powerVerionTwo(int x, int y) {
-        int result = 1;
-        for (int i = 0; i < y; i++) {
-            result *= x;
-        }
-        return result;
+        System.out.println("Driver Name: " + driver2.getName());
+        System.out.println("Driver Age: " + driver2.getAge());
+        System.out.println("F1 Team: " + driver2.getF1Team());
+        System.out.println("Amount of Podiums: " + driver2.getPodiums());
+        System.out.println("Driver Rising Number: " + driver2.getRisingNumber());
     }
 }
