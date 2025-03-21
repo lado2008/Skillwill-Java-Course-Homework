@@ -1,22 +1,21 @@
-import cars.BMW;
-import cars.Car;
-import cars.Ferrari;
-import hello.HelloClass;
-
 public class Main {
     public static void main(String[] args) {
-        HelloClass hello = new HelloClass();
-        hello.hello("Hello World!");
-        hello.hello("Hi, I am Lado :)", 3);
+        int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        String[] array = {"cat", "dog", "car", "toy", "boy", "girl", "bird", "pig", "array", "loop"};
 
-        Car bmw = new BMW();
-        bmw.speed();
-        bmw.color();
-        bmw.numberOfWheels();
+        for (String i : array) {
+            System.out.println(i);
+        }
 
-        Car ferrari = new Ferrari();
-        ferrari.speed();
-        ferrari.color();
-        ferrari.numberOfWheels();
+        getElementIndex(arr, 11);
+    }
+    public static void getElementIndex(int[] arr, int num) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == num) {
+                System.out.println("Index is: " + i);
+                return;
+            }
+        }
+        System.out.println("I couldn't find it");
     }
 }
