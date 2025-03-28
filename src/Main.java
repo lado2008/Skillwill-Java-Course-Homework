@@ -1,55 +1,60 @@
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        
-        ArrayList<String> words = new ArrayList<String>();
-        words.add("Lado");
-        words.add("Boy");
-        words.add("Programming");
-        words.add("Java");
-        words.add("Hello");
-        words.add("World");
-        words.add("Python");
-        words.add("Swift");
-        words.add("JavaScript");
-        words.add("C++");
-        for (int i = 0; i < words.size(); i++) {
-            System.out.println(words.get(i));
-        }
+        Set<Integer> set1 = new HashSet<>();
+        set1.add(1);
+        set1.add(2);
+        set1.add(3);
+        set1.add(4);
+        Set<Integer> set2 = new HashSet<>();
+        set2.add(3);
+        set2.add(4);
+        set2.add(5);
+        set2.add(6);
+        System.out.println("Common elements: " + getCommonElements(set1, set2));
 
 
-        ArrayList<Integer> numbers1 = new ArrayList<Integer>();
-        numbers1.add(2);
-        numbers1.add(3);
-        numbers1.add(5);
-        ArrayList<Integer> numbers2 = new ArrayList<Integer>();
-        numbers2.add(7);
-        numbers2.add(1);
-        numbers2.add(0);
+        Map<Integer, List<Car>> carData = new HashMap<>();
+        carData.put(2020, Arrays.asList(
+                new Car("Ferrari"),
+                new Car("Audi")
+        ));
+        carData.put(2021, Arrays.asList(
+                new Car("Mercedes"),
+                new Car("BMW"),
+                new Car("Tesla"),
+                new Car("Ford")
+        ));
+        carData.put(2019, Arrays.asList(
+                new Car("Nissan"),
+                new Car("Mercedes"),
+                new Car("Bently")
+        ));
 
-        System.out.println(greatestNumberFromList(numbers1, numbers2));
+        System.out.println("Year in which the most cars were produced:" + getYear(carData));
     }
-    public static int greatestNumberFromList(ArrayList<Integer> list1, ArrayList<Integer> list2) {
-        int max;
-        int x = list1.get(0);
-        int y = list2.get(0);
-        for (int i = 1; i < list1.size(); i++) {
-            if(list1.get(i) > x) {
-                x = list1.get(i);
+    public static Set<Integer> getCommonElements(Set<Integer> set1, Set<Integer> set2) {
+        Set<Integer> commonElements = new HashSet<>();
+
+        for (Integer num : set1) {
+            if (set2.contains(num)) {
+                commonElements.add(num);
             }
         }
-        for (int i = 1; i < list2.size(); i++) {
-            if (list2.get(i) > y) {
-                y = list2.get(i);
+        return commonElements;
+    }
+    public static  int getYear(Map<Integer, List<Car>> carData) {
+        int maxYear = -1;
+        int maxCount = 0;
+
+        for (Integer year : carData.keySet()) {
+            int count = carData.get(year).size();
+            if (count > maxCount) {
+                maxCount = count;
+                maxYear = year;
             }
         }
-        if (x > y) {
-             return x;
-        }
-        else {
-             return y;
-        }
+        return maxYear;
     }
 }
